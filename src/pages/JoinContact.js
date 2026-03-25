@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import ProjectCarousel from '../components/ProjectCarousel';
 
 const JoinContact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '', role: '' });
@@ -88,6 +89,18 @@ const JoinContact = () => {
       meaning: 'The Founder',
       icon: '●',
     },
+  ];
+
+  const honeyImages = [
+    `${process.env.PUBLIC_URL}/Bee Keeping Kalawewa/Honey for Hope.png`,
+    // subsequent numbered files (2) .. (25)
+    ...Array.from({ length: 24 }, (_, i) => `${process.env.PUBLIC_URL}/Bee Keeping Kalawewa/Honey for Hope (${i + 2}).png`),
+  ];
+
+  const loomImages = [
+    `${process.env.PUBLIC_URL}/Loom For Legacy/Loom  For  Legacy.png`,
+    // subsequent numbered files (2) .. (10)
+    ...Array.from({ length: 9 }, (_, i) => `${process.env.PUBLIC_URL}/Loom For Legacy/Loom  For  Legacy (${i + 2}).png`),
   ];
 
   return (
@@ -280,6 +293,10 @@ const JoinContact = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Projects Carousel Section */}
+      <ProjectCarousel projectName="Honey for Hope" images={honeyImages} interval={3000} />
+      <ProjectCarousel projectName="Loom For Legacy" images={loomImages} interval={3000} />
 
       {/* Founder's Message Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-orange-50 via-white to-gray-50">
